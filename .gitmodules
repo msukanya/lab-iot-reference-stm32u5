@@ -53,3 +53,7 @@
 [submodule "Middleware/ARM/trusted-firmware-m"]
 	path = Middleware/ARM/trusted-firmware-m
 	url = https://git.trustedfirmware.org/TF-M/trusted-firmware-m.git
+[submodule "Projects/B-U585I-IOT02A/tz_disabled/Test/3rdparty/unity"]
+	path = Projects/B-U585I-IOT02A/tz_disabled/Test/3rdparty/unity
+	url = https://github.com/ThrowTheSwitch/Unity.git
+
