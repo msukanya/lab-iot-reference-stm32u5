@@ -30,6 +30,11 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
+#include "unity_fixture.h"
+#include "unity_internals.h"
+
+#define mainTEST_RUNNER_TASK_STACK_SIZE     ( configMINIMAL_STACK_SIZE * 8 )
+
 
 /* Initialize hardware / STM32 HAL library */
 static void hw_init( void )
@@ -65,27 +70,42 @@ static void testTask( void * pvParameters )
 	}
 }
 
+
+void UnityTests( void * pvParameters )
+{
+	UnityFixture.Verbose = 1;
+    UnityFixture.GroupFilter = 0;
+    UnityFixture.RepeatCount = 1;
+
+	UNITY_BEGIN();
+	RUN_TEST_GROUP( Common_IO );
+	UNITY_END();
+
+	vTaskDelete( NULL );
+}
+
 int main( void )
 {
 	hw_init();
-
 	vLoggingInit();
-
 	LogInfo(("HW Init Complete."));
 
 	/* Init scheduler */
     osKernelInitialize();
-
     LogInfo(("Kernel Init Complete."));
 
     /* Initialize threads */
-    xTaskCreate( testTask, "testTask", 1024, NULL, tskIDLE_PRIORITY + 1, NULL );
-    //TODO
-
+    BaseType_t xRC = pdPASS;
+    xRC = xTaskCreate( UnityTests,
+    			 	   "UnityTests",
+					   mainTEST_RUNNER_TASK_STACK_SIZE,
+					   NULL,
+					   tskIDLE_PRIORITY + 1,
+					   NULL );
+    configASSERT( xRC == pdPASS );
 
     /* Start scheduler */
     osKernelStart();
-
     LogError(("Kernel start returned."));
 
 
