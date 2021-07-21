@@ -115,10 +115,10 @@ void TIM6_IRQHandler(void)
   HAL_TIM_IRQHandler(&htim6);
 }
 
-void SPI2_IRQHandler(void)
-{
-  HAL_SPI_IRQHandler(&hspi2);
-}
+//void SPI2_IRQHandler(void)
+//{
+//  HAL_SPI_IRQHandler(&hspi2);
+//}
 
 void USART1_IRQHandler(void)
 {
