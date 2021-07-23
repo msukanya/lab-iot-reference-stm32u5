@@ -78,17 +78,6 @@ void DebugMon_Handler(void)
 }
 
 /* STM32U5xx Peripheral Interrupt Handlers */
-
-void EXTI14_IRQHandler(void)
-{
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_14);
-}
-
-void EXTI15_IRQHandler(void)
-{
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_15);
-}
-
 void GPDMA1_Channel4_IRQHandler(void)
 {
   HAL_DMA_IRQHandler(&handle_GPDMA1_Channel4);

@@ -29,11 +29,14 @@
 /* SPI includes */
 #include "iot_spi.h"
 
+/*------------------------GPIO-------------------------------*/
+#define IOT_TEST_COMMON_IO_GPIO_SUPPORTED     0
+
 /*------------------------UART-------------------------------*/
 #define IOT_TEST_COMMON_IO_UART_SUPPORTED     0
 
 /*------------------------SPI-------------------------------*/
-#define IOT_TEST_COMMON_IO_SPI_SUPPORTED      1
+#define IOT_TEST_COMMON_IO_SPI_SUPPORTED      0
 
 /* Enables loop-back tests where a single SPI instance's MOSI --> MISO,
  * with no other connections. Without the looping connection, these tests

@@ -56,7 +56,13 @@ TEST_TEAR_DOWN( Common_IO )
 TEST_GROUP_RUNNER( Common_IO )
 {
     size_t i = 0;
-
+	#ifdef IOT_TEST_COMMON_IO_GPIO_SUPPORTED
+		for( i = 1; i < IOT_TEST_COMMON_IO_GPIO_SUPPORTED; i++ )
+		{
+			SET_TEST_IOT_GPIO_CONFIG( i );
+			RUN_TEST_GROUP( TEST_IOT_GPIO )
+		}
+	#endif
 
     #if IOT_TEST_COMMON_IO_UART_SUPPORTED >= 1
         for( i = 0; i < IOT_TEST_COMMON_IO_UART_SUPPORTED; i++ )

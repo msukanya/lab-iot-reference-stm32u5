@@ -33,6 +33,28 @@
 
 #pragma once
 
+/* GPIO */
+#if defined( IOT_TEST_COMMON_IO_GPIO_SUPPORTED ) && ( IOT_TEST_COMMON_IO_GPIO_SUPPORTED >= 2 )
+    extern int32_t ltestIotGpioPortA;       /* The 1st GPIO port used in the loop back test */
+    extern int32_t ltestIotGpioPortB;       /* The 2nd GPIO port used in the loop back test */
+    extern uint16_t ustestIotGpioConfig;    /* The configuration of GPIO in the test (port, direction, irq, write value)
+                                             * Check test_iot_gpio.c for its bit assignment */
+    extern uint32_t ultestIotGpioWaitTime;  /* Wait time for GPIO port A to receive GPIO interrupt from port B during the test
+                                             * This is needed to avoid indefinite wait during the test */
+    extern uint32_t ultestIotGpioSlowSpeed; /* Based on the underlying HW, set the slow speed setting of GPIO */
+    extern uint32_t ultestIotGpioFastSpeed; /* Based on the underlying HW, set the high speed setting of GPIO */
+    extern uint32_t ultestIotGpioFunction;  /* Alt Function for GPIO for the pin */
+
+/**
+ * Board specific GPIO config set
+ *
+ * @param: testSet: number of config set to be test
+ * @return None
+ */
+    void SET_TEST_IOT_GPIO_CONFIG( int testSet );
+#else /* if defined( IOT_TEST_COMMON_IO_GPIO_SUPPORTED ) && ( IOT_TEST_COMMON_IO_GPIO_SUPPORTED >= 1 ) */
+    #define IOT_TEST_COMMON_IO_GPIO_SUPPORTED    0
+#endif /* ifdef IOT_TEST_COMMON_IO_GPIO_SUPPORTED */
 
 /*
  * Test iteration count macros that platforms should set
