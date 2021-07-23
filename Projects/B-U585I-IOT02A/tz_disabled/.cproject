@@ -166,8 +166,6 @@
                                     <listOptionValue builtIn="false" value="&quot;${workspace_loc}&quot;"/>
                                     									
                                     <listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Src/Common_IO}&quot;"/>
-                                    									
-                                    <listOptionValue builtIn="false" value="&quot;/${ProjName}/Drivers/CMSIS/Device/ST/STM32U5xx/Include/&quot;"/>
                                     								
                                 </option>
                                 								
@@ -242,6 +240,16 @@
                         </toolChain>
                         					
                     </folderInfo>
+                    					
+                    <fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.2134482293.1386848866" name="mx_wifi_spi.c" rcbsApplicability="disable" resourcePath="Drivers/mx_wifi/io_pattern/mx_wifi_spi.c" toolsToInvoke="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1388500733.1211842204">
+                        						
+                        <tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1388500733.1211842204" name="MCU GCC Compiler" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1388500733">
+                            							
+                            <inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.792834427" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
+                            						
+                        </tool>
+                        					
+                    </fileInfo>
                     					
                     <folderInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.2134482293.1049895222" name="/" resourcePath="Src/Common_IO">
                         						
