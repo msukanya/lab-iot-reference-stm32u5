@@ -42,6 +42,11 @@
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
+			<name>Drivers/B-U585I-IOT02A</name>
+			<type>2</type>
+			<location>C:/cygwin64/home/dchalco/spaces/st/dev/Drivers/BSP/B-U585I-IOT02A</location>
+		</link>
+		<link>
 			<name>Drivers/STM32U5_HAL</name>
 			<type>2</type>
 			<locationURI>WORKSPACE_LOC/Drivers/STM32U5xx_HAL</locationURI>

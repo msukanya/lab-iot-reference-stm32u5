@@ -33,8 +33,11 @@
 #include "unity_fixture.h"
 #include "unity_internals.h"
 
+#include "iot_uart.h"
+
 #define mainTEST_RUNNER_TASK_STACK_SIZE     ( configMINIMAL_STACK_SIZE * 8 )
 
+static void tmpPrintString( char * pcString );
 
 /* Initialize hardware / STM32 HAL library */
 static void hw_init( void )
@@ -65,7 +68,8 @@ static void testTask( void * pvParameters )
 	( void ) pvParameters;
 	while(1)
 	{
-		LogInfo(("1 Second has elapsed"));
+		//LogInfo(("1 Second has elapsed"));
+		tmpPrintString("1 Second has elapsed\n");
 		vTaskDelay( pdMS_TO_TICKS( 1000 ) );
 	}
 }
@@ -84,29 +88,61 @@ void UnityTests( void * pvParameters )
 	vTaskDelete( NULL );
 }
 
+static IotUARTHandle_t xConsoleUart = NULL;
+
+void Console_UART_Init( void )
+{
+    int32_t status = IOT_UART_SUCCESS;
+
+    xConsoleUart = iot_uart_open( 0 );
+    configASSERT( xConsoleUart != NULL );
+
+    IotUARTConfig_t xConfig =
+    {
+        .ulBaudrate    = 115200,
+        .xParity      = UART_PARITY_NONE,
+        .ucWordlength  = UART_WORDLENGTH_8B,
+        .xStopbits    = UART_STOPBITS_1,
+        .ucFlowControl = UART_HWCONTROL_NONE
+    };
+
+    status = iot_uart_ioctl( xConsoleUart, eUartSetConfig, &xConfig );
+    configASSERT( status == IOT_UART_SUCCESS );
+}
+
+static void tmpPrintString( char * pcString )
+{
+    iot_uart_write_sync( xConsoleUart, ( uint8_t * ) pcString, strlen( pcString ) );
+}
+
 int main( void )
 {
 	hw_init();
-	vLoggingInit();
-	LogInfo(("HW Init Complete."));
+	//vLoggingInit();
+	Console_UART_Init();
+	//LogInfo(("HW Init Complete."));
 
 	/* Init scheduler */
     osKernelInitialize();
-    LogInfo(("Kernel Init Complete."));
+    //LogInfo(("Kernel Init Complete."));
+    tmpPrintString("Kernel Init Complete.\n");
 
     /* Initialize threads */
     BaseType_t xRC = pdPASS;
+    /*
     xRC = xTaskCreate( UnityTests,
     			 	   "UnityTests",
 					   mainTEST_RUNNER_TASK_STACK_SIZE,
 					   NULL,
 					   tskIDLE_PRIORITY + 1,
 					   NULL );
+	*/
     configASSERT( xRC == pdPASS );
 
     /* Start scheduler */
     osKernelStart();
-    LogError(("Kernel start returned."));
+    //LogError(("Kernel start returned."));
+    tmpPrintString("ERROR: Kernel start returned.");
 
 
 	/* This loop should be inaccessible.*/

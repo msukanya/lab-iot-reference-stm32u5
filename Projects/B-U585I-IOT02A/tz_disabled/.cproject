@@ -166,6 +166,8 @@
                                     <listOptionValue builtIn="false" value="&quot;${workspace_loc}&quot;"/>
                                     									
                                     <listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Src/Common_IO}&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc}/Drivers/BSP/B-U585I-IOT02A&quot;"/>
                                     								
                                 </option>
                                 								
@@ -241,15 +243,25 @@
                         					
                     </folderInfo>
                     					
-                    <fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.2134482293.1386848866" name="mx_wifi_spi.c" rcbsApplicability="disable" resourcePath="Drivers/mx_wifi/io_pattern/mx_wifi_spi.c" toolsToInvoke="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1388500733.1211842204">
-                        						
-                        <tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1388500733.1211842204" name="MCU GCC Compiler" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1388500733">
-                            							
-                            <inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.792834427" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
-                            						
-                        </tool>
-                        					
-                    </fileInfo>
+                    <fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.2134482293.1547220604" name="b_u585i_iot02a_camera.h" rcbsApplicability="disable" resourcePath="Drivers/B-U585I-IOT02A/b_u585i_iot02a_camera.h" toolsToInvoke=""/>
+                    					
+                    <fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.2134482293.1572737057" name="b_u585i_iot02a_ospi.h" rcbsApplicability="disable" resourcePath="Drivers/B-U585I-IOT02A/b_u585i_iot02a_ospi.h" toolsToInvoke=""/>
+                    					
+                    <fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.2134482293.523645133" name="b_u585i_iot02a_usbpd_pwr.h" rcbsApplicability="disable" resourcePath="Drivers/B-U585I-IOT02A/b_u585i_iot02a_usbpd_pwr.h" toolsToInvoke=""/>
+                    					
+                    <fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.2134482293.542517194" name="b_u585i_iot02a_eeprom.h" rcbsApplicability="disable" resourcePath="Drivers/B-U585I-IOT02A/b_u585i_iot02a_eeprom.h" toolsToInvoke=""/>
+                    					
+                    <fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.2134482293.1988598777" name="b_u585i_iot02a_conf_template.h" rcbsApplicability="disable" resourcePath="Drivers/B-U585I-IOT02A/b_u585i_iot02a_conf_template.h" toolsToInvoke=""/>
+                    					
+                    <fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.2134482293.2131894303" name="b_u585i_iot02a_audio.h" rcbsApplicability="disable" resourcePath="Drivers/B-U585I-IOT02A/b_u585i_iot02a_audio.h" toolsToInvoke=""/>
+                    					
+                    <fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.2134482293.732733506" name="b_u585i_iot02a_bus.h" rcbsApplicability="disable" resourcePath="Drivers/B-U585I-IOT02A/b_u585i_iot02a_bus.h" toolsToInvoke=""/>
+                    					
+                    <fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.2134482293.792643151" name="b_u585i_iot02a_motion_sensors.h" rcbsApplicability="disable" resourcePath="Drivers/B-U585I-IOT02A/b_u585i_iot02a_motion_sensors.h" toolsToInvoke=""/>
+                    					
+                    <fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.2134482293.2526761" name="b_u585i_iot02a_errno.h" rcbsApplicability="disable" resourcePath="Drivers/B-U585I-IOT02A/b_u585i_iot02a_errno.h" toolsToInvoke=""/>
+                    					
+                    <fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.2134482293.934102356" name="b_u585i_iot02a_env_sensors.h" rcbsApplicability="disable" resourcePath="Drivers/B-U585I-IOT02A/b_u585i_iot02a_env_sensors.h" toolsToInvoke=""/>
                     					
                     <folderInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.2134482293.1049895222" name="/" resourcePath="Src/Common_IO">
                         						
@@ -311,7 +323,7 @@
                     					
                     <sourceEntries>
                         						
-                        <entry excluding="mx_wifi/io_pattern/mx_wifi_spi.c|mx_wifi/io_pattern/mx_wifi_uart.c|STM32U5_HAL/Src/stm32u5xx_ll_utils.c|STM32U5_HAL/Src/stm32u5xx_ll_usb.c|STM32U5_HAL/Src/stm32u5xx_ll_usart.c|STM32U5_HAL/Src/stm32u5xx_ll_ucpd.c|STM32U5_HAL/Src/stm32u5xx_ll_tim.c|STM32U5_HAL/Src/stm32u5xx_ll_spi.c|STM32U5_HAL/Src/stm32u5xx_ll_sdmmc.c|STM32U5_HAL/Src/stm32u5xx_ll_rtc.c|STM32U5_HAL/Src/stm32u5xx_ll_rng.c|STM32U5_HAL/Src/stm32u5xx_ll_rcc.c|STM32U5_HAL/Src/stm32u5xx_ll_pwr.c|STM32U5_HAL/Src/stm32u5xx_ll_pka.c|STM32U5_HAL/Src/stm32u5xx_ll_opamp.c|STM32U5_HAL/Src/stm32u5xx_ll_lpuart.c|STM32U5_HAL/Src/stm32u5xx_ll_lptim.c|STM32U5_HAL/Src/stm32u5xx_ll_lpgpio.c|STM32U5_HAL/Src/stm32u5xx_ll_icache.c|STM32U5_HAL/Src/stm32u5xx_ll_i2c.c|STM32U5_HAL/Src/stm32u5xx_ll_gpio.c|STM32U5_HAL/Src/stm32u5xx_ll_fmc.c|STM32U5_HAL/Src/stm32u5xx_ll_fmac.c|STM32U5_HAL/Src/stm32u5xx_ll_exti.c|STM32U5_HAL/Src/stm32u5xx_ll_dma2d.c|STM32U5_HAL/Src/stm32u5xx_ll_dma.c|STM32U5_HAL/Src/stm32u5xx_ll_dlyb.c|STM32U5_HAL/Src/stm32u5xx_ll_dac.c|STM32U5_HAL/Src/stm32u5xx_ll_crs.c|STM32U5_HAL/Src/stm32u5xx_ll_crc.c|STM32U5_HAL/Src/stm32u5xx_ll_cordic.c|STM32U5_HAL/Src/stm32u5xx_ll_comp.c|STM32U5_HAL/Src/stm32u5xx_ll_adc.c|STM32U5_HAL/Src/stm32u5xx_hal_timebase_tim_template.c|STM32U5_HAL/Src/stm32u5xx_hal_timebase_rtc_wakeup_template.c|STM32U5_HAL/Src/stm32u5xx_hal_timebase_rtc_alarm_template.c|STM32U5_HAL/Src/stm32u5xx_hal_msp_template.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Drivers"/>
+                        <entry excluding="B-U585I-IOT02A/b_u585i_iot02a_usbpd_pwr.h|B-U585I-IOT02A/b_u585i_iot02a_usbpd_pwr.c|B-U585I-IOT02A/b_u585i_iot02a_ospi.h|B-U585I-IOT02A/b_u585i_iot02a_ospi.c|B-U585I-IOT02A/b_u585i_iot02a_motion_sensors.h|B-U585I-IOT02A/b_u585i_iot02a_motion_sensors.c|B-U585I-IOT02A/b_u585i_iot02a_errno.h|B-U585I-IOT02A/b_u585i_iot02a_env_sensors.h|B-U585I-IOT02A/b_u585i_iot02a_env_sensors.c|B-U585I-IOT02A/b_u585i_iot02a_eeprom.h|B-U585I-IOT02A/b_u585i_iot02a_eeprom.c|B-U585I-IOT02A/b_u585i_iot02a_conf_template.h|B-U585I-IOT02A/b_u585i_iot02a_camera.h|B-U585I-IOT02A/b_u585i_iot02a_bus.h|B-U585I-IOT02A/b_u585i_iot02a_audio.h|B-U585I-IOT02A/b_u585i_iot02a_camera.c|B-U585I-IOT02A/b_u585i_iot02a_bus.c|B-U585I-IOT02A/b_u585i_iot02a_audio.c|mx_wifi/io_pattern/mx_wifi_spi.c|mx_wifi/io_pattern/mx_wifi_uart.c|STM32U5_HAL/Src/stm32u5xx_ll_utils.c|STM32U5_HAL/Src/stm32u5xx_ll_usb.c|STM32U5_HAL/Src/stm32u5xx_ll_usart.c|STM32U5_HAL/Src/stm32u5xx_ll_ucpd.c|STM32U5_HAL/Src/stm32u5xx_ll_tim.c|STM32U5_HAL/Src/stm32u5xx_ll_spi.c|STM32U5_HAL/Src/stm32u5xx_ll_sdmmc.c|STM32U5_HAL/Src/stm32u5xx_ll_rtc.c|STM32U5_HAL/Src/stm32u5xx_ll_rng.c|STM32U5_HAL/Src/stm32u5xx_ll_rcc.c|STM32U5_HAL/Src/stm32u5xx_ll_pwr.c|STM32U5_HAL/Src/stm32u5xx_ll_pka.c|STM32U5_HAL/Src/stm32u5xx_ll_opamp.c|STM32U5_HAL/Src/stm32u5xx_ll_lpuart.c|STM32U5_HAL/Src/stm32u5xx_ll_lptim.c|STM32U5_HAL/Src/stm32u5xx_ll_lpgpio.c|STM32U5_HAL/Src/stm32u5xx_ll_icache.c|STM32U5_HAL/Src/stm32u5xx_ll_i2c.c|STM32U5_HAL/Src/stm32u5xx_ll_gpio.c|STM32U5_HAL/Src/stm32u5xx_ll_fmc.c|STM32U5_HAL/Src/stm32u5xx_ll_fmac.c|STM32U5_HAL/Src/stm32u5xx_ll_exti.c|STM32U5_HAL/Src/stm32u5xx_ll_dma2d.c|STM32U5_HAL/Src/stm32u5xx_ll_dma.c|STM32U5_HAL/Src/stm32u5xx_ll_dlyb.c|STM32U5_HAL/Src/stm32u5xx_ll_dac.c|STM32U5_HAL/Src/stm32u5xx_ll_crs.c|STM32U5_HAL/Src/stm32u5xx_ll_crc.c|STM32U5_HAL/Src/stm32u5xx_ll_cordic.c|STM32U5_HAL/Src/stm32u5xx_ll_comp.c|STM32U5_HAL/Src/stm32u5xx_ll_adc.c|STM32U5_HAL/Src/stm32u5xx_hal_timebase_tim_template.c|STM32U5_HAL/Src/stm32u5xx_hal_timebase_rtc_wakeup_template.c|STM32U5_HAL/Src/stm32u5xx_hal_timebase_rtc_alarm_template.c|STM32U5_HAL/Src/stm32u5xx_hal_msp_template.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Drivers"/>
                         						
                         <entry excluding="STM32_Network_Library/templates|STM32_Network_Library/services|STM32_Network_Library/templates/net_conf_mxchip_uart.c|STM32_Network_Library/templates/net_conf_ethernet_template.c|STM32_Network_Library/templates/net_conf_ethernet_h7_template.c|STM32_Network_Library/templates/net_conf_es_wifi_spi_template.c|STM32_Network_Library/templates/net_conf_es_wifi_spi_mx.c|STM32_Network_Library/templates/net_conf_cellular_template.c|STM32_Network_Library/netif/wifi_if/st_wifi|STM32_Network_Library/netif/wifi_if/es_wifi|STM32_Network_Library/netif/wifi_if/cypress_wifi|STM32_Network_Library/netif/ethernet_if|STM32_Network_Library/netif/cellular_if|STM32_Network_Library/services/net_sdhcp.c|STM32_Network_Library/services/net_mbedtls.c|STM32_Network_Library/services/net_ip_lwip.c|STM32_Network_Library/doxydoc|FreeRTOS/http_parser.c|FreeRTOS/crypto|FreeRTOS/core_http_client.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Libraries"/>
                         						
