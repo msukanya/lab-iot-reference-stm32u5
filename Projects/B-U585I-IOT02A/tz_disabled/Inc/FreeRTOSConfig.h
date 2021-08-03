@@ -168,5 +168,7 @@ header file. */
 /* USER CODE BEGIN Defines */
 /* Section where parameter definitions can be added (for instance, to override default ones in FreeRTOS.h) */
 /* USER CODE END Defines */
+#define configAPPLICATION_PROVIDES_cOutputBuffer 1
+#define configCOMMAND_INT_MAX_OUTPUT_SIZE 128
 
 #endif /* FREERTOS_CONFIG_H */

@@ -33,7 +33,12 @@
 #include "unity_fixture.h"
 #include "unity_internals.h"
 
+#include "cli.h"
+
 #define mainTEST_RUNNER_TASK_STACK_SIZE     ( configMINIMAL_STACK_SIZE * 8 )
+
+#define CLI_TASK_STACK_SIZE ( configMINIMAL_STACK_SIZE + 1024 )
+#define CLI_TASK_PRIORITY   ( tskIDLE_PRIORITY + 2 )
 
 /* Initialize hardware / STM32 HAL library */
 static void hw_init( void )
@@ -100,6 +105,14 @@ int main( void )
 					   mainTEST_RUNNER_TASK_STACK_SIZE,
 					   NULL,
 					   tskIDLE_PRIORITY + 1,
+					   NULL );
+    configASSERT( xRC == pdPASS );
+
+    xRC = xTaskCreate( Task_CLI,
+    				   "cli",
+					   CLI_TASK_STACK_SIZE,
+					   NULL,
+					   CLI_TASK_PRIORITY,
 					   NULL );
     configASSERT( xRC == pdPASS );
 

@@ -107,6 +107,11 @@
 			<locationURI>WORKSPACE_LOC/Drivers/CMSIS/RTOS2/Source/os_tick_ptim.c</locationURI>
 		</link>
 		<link>
+			<name>Libraries/FreeRTOS/FreeRTOS-Plus</name>
+			<type>2</type>
+			<location>C:/cygwin64/home/dchalco/spaces/st/dev/Middleware/FreeRTOS/Distro/FreeRTOS-Plus</location>
+		</link>
+		<link>
 			<name>Libraries/FreeRTOS/backoff_algorithm.c</name>
 			<type>1</type>
 			<locationURI>WORKSPACE_LOC/Middleware/FreeRTOS/backoffAlgorithm/source/backoff_algorithm.c</locationURI>

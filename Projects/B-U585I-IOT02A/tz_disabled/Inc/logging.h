@@ -28,6 +28,8 @@
 #ifndef LOGGING_CONFIG_H
 #define LOGGING_CONFIG_H
 
+#include "iot_uart.h"
+
 /*
  * Logging configuration.
  *
@@ -64,6 +66,7 @@ void vLoggingPrintf( const char * const pcFormatString,
                      ... );
 int32_t xLoggingPrintMetadata( const char * const pcLevel );
 void vLoggingInit( void );
+IotUARTHandle_t xLoggingGetIOHandle( void );
 
 /* See comments immediately above for instructions on changing the verboseness
  * of the logging and adding data such as the function that called the logging

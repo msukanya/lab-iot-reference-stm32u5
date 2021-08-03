@@ -174,6 +174,11 @@ int32_t xLoggingPrintMetadata( const char * const pcLevel )
     return iLength;
 }
 
+IotUARTHandle_t xLoggingGetIOHandle( void )
+{
+	return xConsoleUart;
+}
+
 //void vLoggingDeInit( void )
 //{
 //	/* Scheduler must be suspended */
