@@ -38,6 +38,9 @@
 /* Project Includes */
 #include "main.h"
 
+/* CommonIO Includes */
+#include "iot_uart.h"
+
 /*-----------------------------------------------------------*/
 
 /* Dimensions the arrays into which print messages are created. */
@@ -52,23 +55,17 @@ int _write( int fd, const void * buffer, unsigned int count );
 static char cPrintString[ dlMAX_PRINT_STRING_LENGTH ];
 static SemaphoreHandle_t xLoggingMutex = NULL;
 
-extern UART_HandleTypeDef huart1;
+static IotUARTHandle_t xConsoleUart = NULL;
 
 int _write( int fd, const void * buffer, unsigned int count )
 {
 
 	(void) fd;
 
-	//	for(unsigned int i = 0; i < len; i++)
-	//	{
-	//		ITM_SendChar(lineOutBuf[i]);
-	//	}
-
 	/* blocking write to UART */
-	HAL_StatusTypeDef ret = HAL_UART_Transmit( &huart1, (uint8_t *)buffer, count, 100000 );
+    int32_t ret = iot_uart_write_sync( xConsoleUart, ( uint8_t * ) buffer, count );
 
-
-	if( HAL_OK != ret )
+	if( IOT_UART_SUCCESS != ret )
 	{
 		return 0;
 	}
@@ -81,9 +78,24 @@ int _write( int fd, const void * buffer, unsigned int count )
 
 void vLoggingInit( void )
 {
+    int32_t status = IOT_UART_SUCCESS;
+
 	xLoggingMutex = xSemaphoreCreateMutex();
 	memset( &cPrintString, 0, dlMAX_PRINT_STRING_LENGTH );
-	MX_USART1_UART_Init();
+
+    xConsoleUart = iot_uart_open( 0 );
+    configASSERT( xConsoleUart != NULL );
+    IotUARTConfig_t xConfig =
+    {
+        .ulBaudrate    = 115200,
+        .xParity      = UART_PARITY_NONE,
+        .ucWordlength  = UART_WORDLENGTH_8B,
+        .xStopbits    = UART_STOPBITS_1,
+        .ucFlowControl = UART_HWCONTROL_NONE
+    };
+    status = iot_uart_ioctl( xConsoleUart, eUartSetConfig, &xConfig );
+    configASSERT( status == IOT_UART_SUCCESS );
+
 	xSemaphoreGive(xLoggingMutex);
 }
 
