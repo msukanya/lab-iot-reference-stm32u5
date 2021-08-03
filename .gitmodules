@@ -57,3 +57,6 @@
 	path = Projects/B-U585I-IOT02A/tz_disabled/Test/3rdparty/unity
 	url = https://github.com/ThrowTheSwitch/Unity.git
 
+[submodule "Middleware/FreeRTOS/Distro"]
+	path = Middleware/FreeRTOS/Distro
+	url = git@github.com:FreeRTOS/FreeRTOS.git
