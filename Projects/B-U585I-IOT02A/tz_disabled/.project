@@ -82,6 +82,11 @@
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
+			<name>Libraries/LittleFS</name>
+			<type>2</type>
+			<locationURI>WORKSPACE_LOC/Middleware/3rdparty/LittleFS</locationURI>
+		</link>
+		<link>
 			<name>Libraries/STM32_Network_Library</name>
 			<type>2</type>
 			<locationURI>WORKSPACE_LOC/Middleware/ST/STM32_Network_Library</locationURI>

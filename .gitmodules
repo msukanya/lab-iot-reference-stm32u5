@@ -60,3 +60,6 @@
 [submodule "Middleware/FreeRTOS/Distro"]
 	path = Middleware/FreeRTOS/Distro
 	url = git@github.com:FreeRTOS/FreeRTOS.git
+[submodule "Middleware/3rdparty/LittleFS"]
+	path = Middleware/3rdparty/LittleFS
+	url = git@github.com:littlefs-project/littlefs.git
