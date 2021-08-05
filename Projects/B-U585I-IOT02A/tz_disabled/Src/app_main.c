@@ -34,6 +34,8 @@
 #include "unity_internals.h"
 
 #include "cli.h"
+#include "lfs.h"
+#include "lfs_port.h"
 
 #define mainTEST_RUNNER_TASK_STACK_SIZE     ( configMINIMAL_STACK_SIZE * 8 )
 
@@ -64,6 +66,25 @@ static void hw_init( void )
 	MX_ICACHE_Init();
 }
 
+static int fs_init( void )
+{
+	lfs_t * pLFS = lfs_port_get_fs_handle();
+	struct lfs_config * pCfg = lfs_port_get_config();
+
+    // mount the filesystem
+    int err = lfs_mount(pLFS, pCfg);
+
+    // reformat if we can't mount the filesystem
+    // this should only happen on the first boot
+    if (err) {
+    	printf("Failed to mount partition. Reformatting...\n");
+        lfs_format(pLFS, pCfg);
+        err = lfs_mount(pLFS, pCfg);
+    }
+
+    return err;
+}
+
 static void testTask( void * pvParameters )
 {
 	( void ) pvParameters;
@@ -92,7 +113,8 @@ int main( void )
 {
 	hw_init();
 	vLoggingInit();
-	LogInfo(("HW Init Complete."));
+	int xMountStatus = fs_init();
+	configASSERT( xMountStatus == LFS_ERR_OK );
 
 	/* Init scheduler */
     osKernelInitialize();
