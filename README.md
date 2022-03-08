@@ -40,7 +40,12 @@ pip install -r requirements.txt
 
 Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 Create an [IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html).
-Type `aws configure` on a command prompt terminal. Fill in the AWS Access Key ID, AWS Secret Access Key, Default output format and Region. 
+Type :
+
+````
+aws configure
+````
+on a command prompt terminal. Fill in the AWS Access Key ID, AWS Secret Access Key, Default output format and Region as show below:
 
  <img width="371" alt="12" src="https://user-images.githubusercontent.com/44592967/153652474-eaa0f45e-654f-4eb0-986e-edce6d1af53f.PNG">
 
