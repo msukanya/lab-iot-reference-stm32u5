@@ -39,7 +39,9 @@ pip install -r requirements.txt
 ````
 
 Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
+
 Create an [IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html).
+
 Type :
 
 ````
