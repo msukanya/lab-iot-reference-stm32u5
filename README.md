@@ -2,7 +2,9 @@
 
 ## Overview 
 
-The STM32U585 IoT Discovery kit comes with 2048 KB of Flash memory, 786 kB of RAM and is based on Arm® Cortex®-M33.   
+This project demonstrates how to integrate modular FreeRTOS software with hardware enforced security to create secure and updatable cloud connected applications. The project is pre-configured to run on the STM32U585 IoT Discovery Kit and connect to AWS. 
+
+The STM32U585 IoT Discovery kit comes with 2048 KB of Flash memory, 786 kB of RAM and is based on Arm Cortex®-M33.   
 
 The STM32U5 IoT Discovery Kit is equipped with a Wi-Fi and Bluetooth module, microphones, a temperature and humidity sensor, a magnetometer, an accelerometer and gyroscope, a pressure sensor, as well as Time-of-Flight (ToF) and gesture-detection sensors. 
 
@@ -13,7 +15,6 @@ The board also comes with 512-Mbit octal-SPI Flash memory, 64-Mbit octal-SPI PSR
  https://www.st.com/en/microcontrollers-microprocessors/stm32u5-series.html 
  
  ###  User Provided items
-
  
  The User must provide: 
 A USB cable (standard A port to micro-B port) 
@@ -29,8 +30,8 @@ git -C lab-iot-reference-stm32u5 submodule update --init
 
 ## Set up your Development Environment 
 
-Download and install [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html#get-software).
-Download and install [Python](https://www.python.org/downloads/).
+Download and install [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html#get-software) Version 1.8.0.
+Download and install the latest version of [Python](https://www.python.org/downloads/).
 During the installation process for python, make sure to tick the boxes to install pip and add python to path.   
 To install python libraries using pip, navigate to the repository (C:\lab-iot-reference-stm32u5\tools) and type: 
 
