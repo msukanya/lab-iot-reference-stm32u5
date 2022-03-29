@@ -63,6 +63,8 @@ Connect the ST-LINK USB port (USB STLK / CN8) to the PC with USB cable.  The USB
 
 ## Importing the projects into STM32CubeIDE 
 
+#### Non Secure project(tz_disabled)
+The tz_disabled project does not use the TrustZone capabilities of the U5 board 
  With the project cloned on the C drive, open STM32CubeIDE. When prompted with setting workspace, click on Browse and navigate to C:\lab-iot-reference-stm32u5 as shown below: 
  
 <img width="550" alt="13" src="https://user-images.githubusercontent.com/44592967/153656131-4688b728-4bde-4828-abdb-12f616b8c70b.PNG">
@@ -141,30 +143,6 @@ Here is an example of the sensor data coming through:
 
 <img width="271" alt="24" src="https://user-images.githubusercontent.com/44592967/153659267-9de9ac07-bd3b-4899-a7ce-044aa3ba678a.PNG">
 
-## Troubleshooting  
-
-1. Upon opening STM32CubeIDE, if the prompt to set the directory doesn’t come up, Click on File->Switch Workspace->Other, and set the workspace as shown below: 
-
-<img width="314" alt="25" src="https://user-images.githubusercontent.com/44592967/153659709-64d8cc21-9c5e-4fe5-8bf0-d43116662f20.PNG">
-
-2 . For the command to run the script as mentioned in the document: 
-
-`python tools/provision.py -i –v `
-
-Note that here are the additional arguments: 
-
-  	  -h, --help            
-      -i, --interactive 
-      -v, --verbose 
- 	    -d DEVICE, --device DEVICE 
- 	   --wifi-ssid WIFI_SSID 
-  	 --wifi-credential WIFI_CREDENTIAL 
-  	 --thing-name THING_NAME 
-  	 --aws-profile AWS_PROFILE 
-  	 --aws-region AWS_REGION 
-  	 --aws-access-key-id AWS_ACCESS_KEY_ID 
- 	   --aws-access-key-secret AWS_ACCESS_KEY_SECRET 
-     
      
 ##     Performing Over-the-air (OTA) Firmware Update 
 
@@ -336,4 +314,102 @@ aws s3api  list-object-versions --bucket <s3 bucket for image> --prefix <image b
 aws iot describe-job-execution --job-id=<Job ID created above> --thing-name=<thing name>
 ````
 
+
+### Secure project
+
+The secure version of the project uses the Trust Zone capabilities of the U5 board. 
+
+Import the workspace and project similar to how it was done in the Non secure version of the project above :
+
+![image](https://user-images.githubusercontent.com/44592967/160467737-2f7f705d-ad15-4553-8fbe-e826c2bc01d0.png)
+
+Build the project. 
+
+The binaries will get populated in the the following path C:/lab-iot-reference-stm32u5/Projects/b_u585_iot02a_tfm/Debug as shown below:
+
+![image](https://user-images.githubusercontent.com/44592967/160490860-386ae4d9-8688-432c-b028-235393c9ae13.png)
+
+ In order to flash the genarted binaries to the board, open a git bash terminal in Windows and navigate to the root of the Debug repository. 
+ 
+ Type in the following commands :
+ 
+ ````
+ flash_gp.sh REG
+ ````
+ 
+  ````
+ flash_gp.sh RM
+ ````
+ 
+  ````
+ flash_gp.sh FULL
+ ````
+ 
+Ensure that the script programs the bytes and runs to completion successfully. 
+
+There are 3 use cases for the above script :
+
+a)	Non-secure project to Secure project = mass erase + TZ + RM + FULL
+b)	Secure project to Non-secure project = RM + TZ-REG
+c)	Secure project to Secure project = RM +  FULL 
+or NS if only the user app is changed,
+or FULL if only the binaries but not the flash layout has changed.
+
+
+ ## Running the demo 
+ 
+ With the firmware flashed to the board, open a command prompt, and navigate to the root of the project(lab-iot-reference-stm32u5). Type:
+ 
+ `python tools/provision.py -i -v `
+ 
+ To know more about the above command, visit the Troubleshooting section at the end of the document.  
+
+The script will prompt you to enter the following details. You only need to update wifi_ssid, wifi_credential, mqtt_endpoint and thing name. 
+
+````
+tls_verify_ca[]: <Click enter> 
+time_hwm[]: <Click enter> 
+Wifi_credential[]: <your wifi password> 
+wifi_auth[]: <Click enter> 
+mqtt_endpoint[]: <a1qwhobjt*****-ats.iot.us-east-2.amazonaws.com> 
+wifi_ssid[]: <your wifi ssid>  
+tls_verify[]: <Click enter> 
+mqtt_port[]: <Click enter> 
+thing_name[]: <stm32u5> 
+````
+<img width="500" alt="20" src="https://user-images.githubusercontent.com/44592967/153658546-8c9a7212-86c9-4b38-aeb8-982aeaade8f0.PNG">
+
+The script will do all the certificate and key provisioning by itself. It will also create a thing with the thing name you entered in the terminal, query your aws account for the correct mqtt endpoint, communicate with AWS, download the certificate and key, and save them to your device. 
+
+The end of the script will look somewhat like this: 
+
+<img width="500" alt="21" src="https://user-images.githubusercontent.com/44592967/153658687-c6bfc826-5653-483c-97b9-957bef57b53a.PNG">
+
+ Optional: Open a serial terminal like TeraTerm. Connect to the board and set the Baud Rate to 115200. Reset the board to observe activity on TeraTerm.  
+ 
+ 
+## Troubleshooting  
+
+1. Upon opening STM32CubeIDE, if the prompt to set the directory doesn’t come up, Click on File->Switch Workspace->Other, and set the workspace as shown below: 
+
+<img width="314" alt="25" src="https://user-images.githubusercontent.com/44592967/153659709-64d8cc21-9c5e-4fe5-8bf0-d43116662f20.PNG">
+
+2 . For the command to run the script as mentioned in the document: 
+
+`python tools/provision.py -i –v `
+
+Note that here are the additional arguments: 
+
+  	  -h, --help            
+      -i, --interactive 
+      -v, --verbose 
+ 	    -d DEVICE, --device DEVICE 
+ 	   --wifi-ssid WIFI_SSID 
+  	 --wifi-credential WIFI_CREDENTIAL 
+  	 --thing-name THING_NAME 
+  	 --aws-profile AWS_PROFILE 
+  	 --aws-region AWS_REGION 
+  	 --aws-access-key-id AWS_ACCESS_KEY_ID 
+ 	   --aws-access-key-secret AWS_ACCESS_KEY_SECRET 
+     
 
