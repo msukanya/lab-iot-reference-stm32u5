@@ -4,6 +4,15 @@
 
 The following Readme.md contains instructions on getting the secure(b_u585i_iot02a_tfm) version of the project up and running. It connects to AWS Core and publishes data. 
 
+## Prerequisites 
+
+Install [Scoop](https://scoop.sh/). Scoop is a command line interpreter for Windows. Follow the steps mentioned in the link. Here is a screenshot of it running to completion in a Windows Powershell terminal :
+
+![image](https://user-images.githubusercontent.com/44592967/163844717-70ff9b7a-b480-4946-b08d-d3220b19b0c7.png)
+
+![image](https://user-images.githubusercontent.com/44592967/163844774-74363b1f-bca8-4d78-97f4-b05bdce56317.png)
+
+
 ## Importing the projects into STM32CubeIDE and Building the Project 
 
 The b_u585i_iot02a_tfm project uses the TrustZone capabilities of the U5 board. 
