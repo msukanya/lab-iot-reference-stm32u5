@@ -9,33 +9,35 @@ The following Readme.md contains instructions on getting the non-secure(b_u585i_
 The b_u585i_iot02a_ntz project does not use the TrustZone capabilities of the U5 board.
 With the project cloned on the C drive, open STM32CubeIDE. When prompted with setting workspace, click on Browse and navigate to C:\lab-iot-reference-stm32u5 as shown below:
 
-<img width="550" alt="13" src="https://user-images.githubusercontent.com/44592967/153656131-4688b728-4bde-4828-abdb-12f616b8c70b.PNG">
+![image](https://user-images.githubusercontent.com/44592967/166302726-fc40516f-ae02-4fa9-8363-db248f6343a8.png)
 
 Note: If the prompt does not come up, look at the Troubleshooting section of this document at the end.
 
 Under Project Explorer, click on *Import projects*.
 
-<img width="550" alt="14" src="https://user-images.githubusercontent.com/44592967/153657055-50aebf12-8e70-428e-beca-913abb1b0e59.PNG">
-
+![image](https://user-images.githubusercontent.com/44592967/166302848-f5f75b4c-3464-4e19-ab5c-cf2f27ae55a8.png)
 
 In the pop–up tab, *Click on Existing projects* into workspace:
 
-<img width="550" alt="15" src="https://user-images.githubusercontent.com/44592967/153657135-369c2501-4e6e-41e7-b3bc-c62fbb323179.PNG">
+![image](https://user-images.githubusercontent.com/44592967/166302959-05971183-9cab-4969-a06f-5a5cdb2c748e.png)
 
 Hit *Next*. The following prompt will pop up:
 
-<img width="550" alt="16" src="https://user-images.githubusercontent.com/44592967/153657341-fa9c526f-b25d-40cd-ae05-d02e8f3551b5.PNG">
+![image](https://user-images.githubusercontent.com/44592967/166303177-f86e5136-b399-47ea-9080-05bfa8b617a3.png)
 
 Click on *Browse* above and navigate to the root of the project. Click on *Finish*.
 
-![image](https://user-images.githubusercontent.com/44592967/162328169-c3820c47-a21f-4dac-85fb-e69cd8aa184c.png)
+![image](https://user-images.githubusercontent.com/44592967/166303280-fa8ca7e6-6f17-4f7f-a7e7-37e9b5941713.png)
 
 This is how the workspace with the imported project looks like:
 
 ![image](https://user-images.githubusercontent.com/44592967/162328220-3d5a6f65-589d-4054-a52b-0f6584f46d68.png)
 
 
-Build the b_u585i_iot02a_ntz project and flash the binary by clicking on *Run->Run*. Make sure that the board is plugged in.
+Build the b_u585i_iot02a_ntz project.
+
+Flash the binary by clicking on *Run->Run*. Make sure that the board is plugged in.
+Note: In case you face issues errors flashing using the above steps, you can navigate to C:\lab-iot-reference-stm32u5\Projects\b_u585i_iot02a_ntz\Debug and flash the .bin file. 
 
  ## Running the demo
 
